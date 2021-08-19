@@ -10,21 +10,21 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <!-- <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <!-- <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <!-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <!-- <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"> -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <!-- <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css"> -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -42,7 +42,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="faculty.html" class="nav-link">Home</a>
+        <a href="faculty.php" class="nav-link">Home</a>
       </li>
   </nav>
   <!-- /.navbar -->
@@ -50,10 +50,12 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-light-navy elevation-4">
     <!-- Brand Logo -->
-    <a href="faculty.html" class="brand-link">
-      <img src="" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-bolder">SPM</span>
-    </a>
+    <div class="">
+      <a href="#" class="brand-link">
+        <img src="dist/img/spm-preloader-logo.jpg" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-bolder">SPM</span>
+      </a>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">      
@@ -63,7 +65,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link btn-primary">
+            <a href="achievement-stats-student.php" target="_blank" class="nav-link btn-primary">
               <i class="nav-icon fas fa-percentage"></i>
               <p>
                 <b>PLO achievement stats (individual student)</b>
@@ -71,7 +73,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link btn-secondary">
+            <a href="performance-trend-course.php" target="_blank" class="nav-link btn-secondary">
               <i class="nav-icon fas fa-percentage"></i>
               <p>
                 <b>PLO performance trend (selected course/s)</b>
@@ -79,7 +81,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link btn-success">
+            <a href="performance-trend-program.php" target="_blank" class="nav-link btn-success">
               <i class="nav-icon fas fa-percentage"></i>
               <p>
                 <b>PLO performance trend (selected program/s)</b>
@@ -87,7 +89,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link btn-warning">
+            <a href="performance-trend-university.php" target="_blank" class="nav-link btn-warning">
               <i class="nav-icon fas fa-percentage"></i>
               <p>
                 <b>PLO performance trend (selected university/s)</b>
@@ -95,10 +97,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link btn-danger">
+            <a href="performance-trend-miscellaneous.php" target="_blank" class="nav-link btn-danger">
               <i class="nav-icon fas fa-percentage"></i>
               <p>
                 <b>Miscellaneous PLO performance trend</b>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="data-input.php" target="_blank" class="nav-link btn-info">
+              <i class="nav-icon fas fa-percentage"></i>
+              <p>
+                <b>Input data</b>
               </p>
             </a>
           </li>
@@ -118,7 +128,8 @@
                 </a>
               </li>
             </ul>
-          </li>      
+          </li>
+        </ul>     
       </nav>
     </div>
   </aside>
@@ -143,7 +154,7 @@
   </div>
 
   <footer class="main-footer">
-    <strong> <a href="faculty.html">SPM</a>.</strong>
+    <strong> <a href="index.html">SPM</a>.</strong>
     All rights reserved.
   </footer>
 </div>

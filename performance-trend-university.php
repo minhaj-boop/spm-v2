@@ -38,12 +38,6 @@
           <div class="col-sm-6">
             <h3><b>PLO Performance Trends of Selected University(s)</b></h3>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Buttons</li>
-            </ol>
-          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -192,7 +186,6 @@
     <!-- /.card -->
     </section>
 </div>
-
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>

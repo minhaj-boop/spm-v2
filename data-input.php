@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>achievement-stats-student</title>
+    <title>data-input</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -33,7 +33,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h3><b>PLO ACHIEVEMENT STATS OF AN INDIVIDUAL STUDENT</b></h3>
+            <h3><b>DATA ENTRY</b></h3>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -45,28 +45,47 @@
     <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title">
-                    Percentage score in each PLO in a selected course against
-                    the average score (from the students in the same course)
+                    ASSESSMENT
                 </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="plo-chart-1.1.php" method="POST">
+                <form action="data-input.php" method="POST">
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
+                        <label>Assessment name</label>
+                        <input type="text" name="course" class="form-control" placeholder="Enter the assessment name (midterm/final/assignment)">
+                      </div>
+                      <div class="form-group">
+                        <label>Assessment weight</label>
+                        <input type="text" name="id" class="form-control" placeholder="Enter total marks of the assessment">
+                      </div>
+                      <div class="form-group">
+                        <label>Assessment weight (converted)</label>
+                        <input type="text" name="id" class="form-control" placeholder="Enter converted total marks of the assessment">
+                      </div>
+                      <div class="form-group">
+                        <label>Total marks obtained</label>
+                        <input type="text" name="id" class="form-control" placeholder="Enter total marks obtained by the student">
+                      </div>
+                      <div class="form-group">
+                        <label>Total marks obtained (converted)</label>
+                        <input type="text" name="id" class="form-control" placeholder="Enter converted total marks obtained by the student">
+                      </div>
+                      <div class="form-group">
                         <label>Course</label>
-                        <input type="text" name="course" class="form-control" placeholder="Enter the course name (Ex: CSE203...etc)">
+                        <input type="text" name="id" class="form-control" placeholder="Enter course ID (Ex: csc101...etc)">
                       </div>
                       <div class="form-group">
                         <label>Student ID</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter your student ID">
+                        <input type="text" name="id" class="form-control" placeholder="Enter the student ID">
                       </div>
                     </div>      
                   </div>
                   <div class="footer">
-                    <button formtarget="_blank" type="submit" class="btn btn-primary"><i class="nav-icon fas fa-chart-pie"></i> Generate Chart</button>
+                    <button formtarget="_blank" type="submit" class="btn btn-primary"><i class="fas fa-database"></i> save</button>
                   </div>
                 </form>
               </div>
@@ -78,57 +97,39 @@
     <div class="card card-danger">
               <div class="card-header">
                 <h3 class="card-title">
-                    Percentage score in each PLO against the program average
-                    (from the students in the same program)
+                    QUESTION
                 </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="plo-chart-1.2.php" method="POST">
+                <form action="data-input.php" method="POST">
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- text input -->
                       <div class="form-group">
-                        <label>Program</label>
-                        <input type="text" name="program" class="form-control" placeholder="Enter the program name (Ex: CSE...etc)">
+                        <label>Question no</label>
+                        <input type="text" name="program" class="form-control" placeholder="Enter the question number (Ex: q1...etc)">
+                      </div>
+                      <div class="form-group">
+                        <label>Marks</label>
+                        <input type="text" name="id" class="form-control" placeholder="Enter marks assigned to the question">
+                      </div>
+                      <div class="form-group">
+                        <label>Obtained marks</label>
+                        <input type="text" name="id" class="form-control" placeholder="Enter marks obtained my the student in the question">
+                      </div>
+                      <div class="form-group">
+                        <label>Assessment</label>
+                        <input type="text" name="id" class="form-control" placeholder="Enter the assessment the question belong to (Ex: midterm...etc)">
                       </div>
                       <div class="form-group">
                         <label>Student ID</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter your student ID">
+                        <input type="text" name="id" class="form-control" placeholder="Enter the student ID">
                       </div>
                     </div>      
                   </div>
                   <div class="footer">
-                    <button formtarget="_blank" type="submit" class="btn btn-primary"><i class="nav-icon fas fa-chart-pie"></i> Generate Chart</button>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
-    </section>
-    <section>
-    <div class="card card-secondary">
-              <div class="card-header">
-                <h3 class="card-title">
-                PLOs achieved and failed to achieve (with percentage
-                score) for a selected student in all the courses taken by that student so far
-                </h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form action="plo-table-1.3.php" method="POST">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <!-- text input -->
-                      <div class="form-group">
-                        <label>Student ID</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter your student ID">
-                      </div>
-                    </div>      
-                  </div>
-                  <div class="footer">
-                    <button formtarget="_blank" type="submit" class="btn btn-primary"><i class="fas fa-table"></i> Generate Table</button>
+                    <button formtarget="_blank" type="submit" class="btn btn-primary"><i class="fas fa-database"></i> save</button>
                   </div>
                 </form>
               </div>
