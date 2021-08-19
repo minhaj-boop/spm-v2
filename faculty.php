@@ -154,7 +154,7 @@
   </div>
 
   <footer class="main-footer">
-    <strong> <a href="index.html">SPM</a>.</strong>
+    <strong> <a href="faculty.php">SPM</a>.</strong>
     All rights reserved.
   </footer>
 </div>

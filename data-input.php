@@ -1,3 +1,12 @@
+<?php 
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,9 +47,7 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
-  
     <section>
     <div class="card card-success">
               <div class="card-header">
@@ -56,31 +63,31 @@
                       <!-- text input -->
                       <div class="form-group">
                         <label>Assessment name</label>
-                        <input type="text" name="course" class="form-control" placeholder="Enter the assessment name (midterm/final/assignment)">
+                        <input type="text" name="assessment_name" class="form-control" placeholder="Enter the assessment name (midterm/final/assignment)">
                       </div>
                       <div class="form-group">
                         <label>Assessment weight</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter total marks of the assessment">
+                        <input type="text" name="assessment_weight" class="form-control" placeholder="Enter total marks of the assessment">
                       </div>
                       <div class="form-group">
                         <label>Assessment weight (converted)</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter converted total marks of the assessment">
+                        <input type="text" name="assessment_converted_weight" class="form-control" placeholder="Enter converted total marks of the assessment">
                       </div>
                       <div class="form-group">
                         <label>Total marks obtained</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter total marks obtained by the student">
+                        <input type="text" name="total_marks_obtained" class="form-control" placeholder="Enter total marks obtained by the student">
                       </div>
                       <div class="form-group">
                         <label>Total marks obtained (converted)</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter converted total marks obtained by the student">
+                        <input type="text" name="converted_total_marks_obtained" class="form-control" placeholder="Enter converted total marks obtained by the student">
                       </div>
                       <div class="form-group">
                         <label>Course</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter course ID (Ex: csc101...etc)">
+                        <input type="text" name="course" class="form-control" placeholder="Enter course ID (Ex: csc101...etc)">
                       </div>
                       <div class="form-group">
                         <label>Student ID</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter the student ID">
+                        <input type="text" name="student_id" class="form-control" placeholder="Enter the student ID">
                       </div>
                     </div>      
                   </div>
@@ -108,23 +115,23 @@
                       <!-- text input -->
                       <div class="form-group">
                         <label>Question no</label>
-                        <input type="text" name="program" class="form-control" placeholder="Enter the question number (Ex: q1...etc)">
+                        <input type="text" name="question_no" class="form-control" placeholder="Enter the question number (Ex: q1...etc)">
                       </div>
                       <div class="form-group">
                         <label>Marks</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter marks assigned to the question">
+                        <input type="text" name="marks" class="form-control" placeholder="Enter marks assigned to the question">
                       </div>
                       <div class="form-group">
                         <label>Obtained marks</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter marks obtained my the student in the question">
+                        <input type="text" name="obtained_marks" class="form-control" placeholder="Enter marks obtained my the student in the question">
                       </div>
                       <div class="form-group">
                         <label>Assessment</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter the assessment the question belong to (Ex: midterm...etc)">
+                        <input type="text" name="question_assessment_name" class="form-control" placeholder="Enter the assessment the question belong to (Ex: midterm...etc)">
                       </div>
                       <div class="form-group">
                         <label>Student ID</label>
-                        <input type="text" name="id" class="form-control" placeholder="Enter the student ID">
+                        <input type="text" name="question_student_id" class="form-control" placeholder="Enter the student ID">
                       </div>
                     </div>      
                   </div>
