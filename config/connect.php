@@ -1,7 +1,7 @@
 <?php 
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
     //connect to database
-    $conn = mysqli_connect('127.0.0.1:3307', 'root', '', 'spm');
+    $conn = mysqli_connect('localhost', 'root', '', 'spm');
 
     //check connection
       if(!$conn) {
