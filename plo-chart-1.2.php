@@ -1,7 +1,54 @@
 <?php
+include('config/connect.php');
+$programId = $_POST['program'];
+$studentId =  $_POST['id'];
 
-echo $_POST['program'];
-echo $_POST['id'];
+$query1 = "SELECT * 
+            FROM tbl_co AS c 
+              JOIN tbl_student AS s 
+                ON c.studentId = s.studentId 
+                  WHERE c.studentId= $studentId AND s.programId = '$programId'
+                    GROUP BY c.ploNo
+                      ORDER BY c.ploNo";
+
+$result1 = mysqli_query($conn, $query1);
+$plos = '';
+$achievedMarks = '';
+
+  while($rows = mysqli_fetch_array($result1)){
+    $plo = $rows['ploNo'];
+    $achievedMark = $rows['achievedMarks'];
+
+    $plos = $plos.'"'.$plo.'",'; 
+    $achievedMarks = $achievedMarks.$achievedMark.',';
+  }
+  $plos = trim($plos, ",");
+  $achievedMarks = trim($achievedMarks, ",");
+
+$query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS achievedMarks
+              FROM tbl_co AS c 
+                JOIN tbl_student AS s 
+                  ON c.studentId = s.studentId 
+                    WHERE c.studentId = $studentId AND s.programId = '$programId'
+                      GROUP BY c.ploNo
+                        ORDER BY c.ploNo";
+  
+  $result2 = mysqli_query($conn, $query2);
+  //$plos2 = '';
+  $avgMarks = '';
+
+  while($rows = mysqli_fetch_array($result2)){
+    //$plo = $rows['ploNo'];
+    $avgMark = $rows['achievedMarks'];
+
+    //$plos2 = $plos2.'"'.$plo.'",'; 
+    $avgMarks = $avgMarks.$avgMark.',';
+  }
+  
+  //$plos2 = trim($plos2, ",");
+  $avgMarks = trim($avgMarks, ",");
+
+  mysqli_close($conn);
 
 ?>
 
@@ -212,10 +259,10 @@ echo $_POST['id'];
     var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
     var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels  : [<?php echo $plos ?>],
       datasets: [
         {
-          label               : 'Digital Goods',
+          label               : 'Single Students',
           backgroundColor     : 'rgba(60,141,188,0.9)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius         : false,
@@ -223,10 +270,10 @@ echo $_POST['id'];
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
+          data                : [<?php echo $achievedMarks ?> ]
         },
         {
-          label               : 'Electronics',
+          label               : 'All Students',
           backgroundColor     : 'rgba(210, 214, 222, 1)',
           borderColor         : 'rgba(210, 214, 222, 1)',
           pointRadius         : false,
@@ -234,7 +281,7 @@ echo $_POST['id'];
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
+          data                : [<?php echo $avgMarks ?>]
         },
       ]
     }
