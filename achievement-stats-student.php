@@ -88,10 +88,10 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- text input -->
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Program</label>
                         <input type="text" name="program" class="form-control" placeholder="Enter the program name (Ex: CSE...etc)">
-                      </div>
+                      </div> -->
                       <div class="form-group">
                         <label>Student ID</label>
                         <input type="text" name="id" class="form-control" placeholder="Enter your student ID">

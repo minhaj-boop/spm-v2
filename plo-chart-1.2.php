@@ -1,23 +1,24 @@
 <?php
 include('config/connect.php');
-$programId = $_POST['program'];
+//$programId = $_POST['program'];
 $studentId =  $_POST['id'];
 
-$query1 = "SELECT * 
+$query1 = "SELECT c.ploNo, s.programId, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS achievedMarks 
             FROM tbl_co AS c 
               JOIN tbl_student AS s 
                 ON c.studentId = s.studentId 
-                  WHERE c.studentId= $studentId AND s.programId = '$programId'
+                  WHERE c.studentId = $studentId
                     GROUP BY c.ploNo
                       ORDER BY c.ploNo";
 
 $result1 = mysqli_query($conn, $query1);
 $plos = '';
 $achievedMarks = '';
-
+$programId = '';
   while($rows = mysqli_fetch_array($result1)){
     $plo = $rows['ploNo'];
     $achievedMark = $rows['achievedMarks'];
+    $programId = $rows['programId'];
 
     $plos = $plos.'"'.$plo.'",'; 
     $achievedMarks = $achievedMarks.$achievedMark.',';
@@ -27,11 +28,12 @@ $achievedMarks = '';
 
 $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS achievedMarks
               FROM tbl_co AS c 
-                JOIN tbl_student AS s 
-                  ON c.studentId = s.studentId 
-                    WHERE c.studentId = $studentId AND s.programId = '$programId'
-                      GROUP BY c.ploNo
-                        ORDER BY c.ploNo";
+               JOIN tbl_plo AS p
+                  JOIN tbl_student AS s
+                     ON s.programId = p.programId 
+                        WHERE p.programId = '$programId'
+                          GROUP BY c.ploNo
+                            ORDER BY c.ploNo";
   
   $result2 = mysqli_query($conn, $query2);
   //$plos2 = '';
@@ -262,7 +264,7 @@ $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS ac
       labels  : [<?php echo $plos ?>],
       datasets: [
         {
-          label               : 'Single Students',
+          label               : 'Single Student',
           backgroundColor     : 'rgba(60,141,188,0.9)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius         : false,
