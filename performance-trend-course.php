@@ -60,26 +60,23 @@
                       <!-- dropdown -->
                       <div class="form-group">
                        <label>Course/s</label>
-                       <select name="course[]" class="select2bs4" multiple="multiple" data-placeholder="Select course/s" style="width: 100%;">
+                       <select name="course" class="select2bs4" data-placeholder="Select course/s" style="width: 100%;">
                         <option value="CSC101">CSC101</option>
                         <option value="CSE201">CSE201</option>
+                        <option value="CSE104">CSE104</option>
                         <option value="CSE303">CSE303</option>
-                        <option value="CSE203">CSE203</option>
-                        <option value="CSE301">CSE301</option>
-                        <option value="CSE401">CSE401</option>
-                        <option value="CSE404">CSE404</option>
+                        <option value="CSE214">CSE214</option>
+                        <option value="CSE315">CSE315</option>
                        </select>
                       </div>
                       <div class="form-group">
                        <label>Semester/s</label>
-                       <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select semester/s" style="width: 100%;">
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="California">California</option>
-                        <option value="Delwar">Delaware</option>
-                        <option value="Tennessee">Tennessee</option>
-                        <option value="Texa">Texas</option>
-                        <option value="Washington">Washington</option>
+                       <select name="semester" class="select2bs4" data-placeholder="Select semester/s" style="width: 100%;">
+                        <option value="summer2017">summer2017</option>
+                        <option value="autumn2017">autumn2017</option>
+                        <option value="autumn2019">autumn2019</option>
+                        <option value="autumn2020">autumn2020</option>
+                        <option value="summer2019">summer2019</option>
                        </select>
                       </div>
                     </div>      
@@ -123,13 +120,19 @@
                       <div class="form-group">
                        <label>PLO/s</label>
                        <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select PLO/s" style="width: 100%;">
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="California">California</option>
-                        <option value="Delwar">Delaware</option>
-                        <option value="Tennessee">Tennessee</option>
-                        <option value="Texa">Texas</option>
-                        <option value="Washington">Washington</option>
+                        <option value="plo1">PLO 1</option>
+                        <option value="plo2">PLO 2</option>
+                        <option value="plo3">PLO 3</option>
+                        <option value="plo4">PLO 4</option>
+                        <option value="plo5">PLO 5</option>
+                        <option value="plo6">PLO 6</option>
+                        <option value="plo7">PLO 7</option>
+                        <option value="plo8">PLO 8</option>
+                        <option value="plo9">PLO 9</option>
+                        <option value="plo10">PLO 10</option>
+                        <option value="plo11">PLO 11</option>
+                        <option value="plo12">PLO 12</option>
+                        <option value="plo13">PLO 13</option>
                        </select>
                       </div>
                     </div>      
@@ -162,23 +165,20 @@
                        <select name="course[]" class="select2bs4" multiple="multiple" data-placeholder="Select course/s" style="width: 100%;">
                         <option value="CSC101">CSC101</option>
                         <option value="CSE201">CSE201</option>
+                        <option value="CSE104">CSE104</option>
                         <option value="CSE303">CSE303</option>
-                        <option value="CSE203">CSE203</option>
-                        <option value="CSE301">CSE301</option>
-                        <option value="CSE401">CSE401</option>
-                        <option value="CSE404">CSE404</option>
+                        <option value="CSE214">CSE214</option>
+                        <option value="CSE315">CSE315</option>
                        </select>
                       </div>
                       <div class="form-group">
                        <label>Semester/s</label>
                        <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select semester/s" style="width: 100%;">
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="California">California</option>
-                        <option value="Delwar">Delaware</option>
-                        <option value="Tennessee">Tennessee</option>
-                        <option value="Texa">Texas</option>
-                        <option value="Washington">Washington</option>
+                        <option value="summer2017">summer2017</option>
+                        <option value="autumn2017">autumn2017</option>
+                        <option value="autumn2019">autumn2019</option>
+                        <option value="autumn2020">autumn2020</option>
+                        <option value="summer2019">summer2019</option>
                        </select>
                       </div>
                     </div>      
@@ -224,7 +224,7 @@
 <!-- Page specific script -->
 <script>
   $(function () {
-    //Initialize Select2 Elements
+    //Initialize Select2 Elementsgit 
     $('.select2').select2()
 
     //Initialize Select2 Elements
@@ -232,128 +232,128 @@
       theme: 'bootstrap4'
     })
 
-    //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-    //Datemask2 mm/dd/yyyy
-    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-    //Money Euro
-    $('[data-mask]').inputmask()
+    // //Datemask dd/mm/yyyy
+    // $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    // //Datemask2 mm/dd/yyyy
+    // $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    // //Money Euro
+    // $('[data-mask]').inputmask()
 
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    });
+    // //Date picker
+    // $('#reservationdate').datetimepicker({
+    //     format: 'L'
+    // });
 
-    //Date and time picker
-    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+    // //Date and time picker
+    // $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
 
-    //Date range picker
-    $('#reservation').daterangepicker()
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({
-      timePicker: true,
-      timePickerIncrement: 30,
-      locale: {
-        format: 'MM/DD/YYYY hh:mm A'
-      }
-    })
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-      {
-        ranges   : {
-          'Today'       : [moment(), moment()],
-          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        },
-        startDate: moment().subtract(29, 'days'),
-        endDate  : moment()
-      },
-      function (start, end) {
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-      }
-    )
+    // //Date range picker
+    // $('#reservation').daterangepicker()
+    // //Date range picker with time picker
+    // $('#reservationtime').daterangepicker({
+    //   timePicker: true,
+    //   timePickerIncrement: 30,
+    //   locale: {
+    //     format: 'MM/DD/YYYY hh:mm A'
+    //   }
+    // })
+    // //Date range as a button
+    // $('#daterange-btn').daterangepicker(
+    //   {
+    //     ranges   : {
+    //       'Today'       : [moment(), moment()],
+    //       'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //       'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+    //       'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    //       'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+    //       'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    //     },
+    //     startDate: moment().subtract(29, 'days'),
+    //     endDate  : moment()
+    //   },
+    //   function (start, end) {
+    //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+    //   }
+    // )
 
-    //Timepicker
-    $('#timepicker').datetimepicker({
-      format: 'LT'
-    })
+    // //Timepicker
+    // $('#timepicker').datetimepicker({
+    //   format: 'LT'
+    // })
 
-    //Bootstrap Duallistbox
-    $('.duallistbox').bootstrapDualListbox()
+    // //Bootstrap Duallistbox
+    // $('.duallistbox').bootstrapDualListbox()
 
-    //Colorpicker
-    $('.my-colorpicker1').colorpicker()
-    //color picker with addon
-    $('.my-colorpicker2').colorpicker()
+    // //Colorpicker
+    // $('.my-colorpicker1').colorpicker()
+    // //color picker with addon
+    // $('.my-colorpicker2').colorpicker()
 
-    $('.my-colorpicker2').on('colorpickerChange', function(event) {
-      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-    })
+    // $('.my-colorpicker2').on('colorpickerChange', function(event) {
+    //   $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    // })
 
-    $("input[data-bootstrap-switch]").each(function(){
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    })
+    // $("input[data-bootstrap-switch]").each(function(){
+    //   $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    // })
 
   })
   // BS-Stepper Init
-  document.addEventListener('DOMContentLoaded', function () {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-  })
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+  // })
 
-  // DropzoneJS Demo Code Start
-  Dropzone.autoDiscover = false
+  // // DropzoneJS Demo Code Start
+  // Dropzone.autoDiscover = false
 
-  // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-  var previewNode = document.querySelector("#template")
-  previewNode.id = ""
-  var previewTemplate = previewNode.parentNode.innerHTML
-  previewNode.parentNode.removeChild(previewNode)
+  // // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+  // var previewNode = document.querySelector("#template")
+  // previewNode.id = ""
+  // var previewTemplate = previewNode.parentNode.innerHTML
+  // previewNode.parentNode.removeChild(previewNode)
 
-  var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-    url: "/target-url", // Set the url
-    thumbnailWidth: 80,
-    thumbnailHeight: 80,
-    parallelUploads: 20,
-    previewTemplate: previewTemplate,
-    autoQueue: false, // Make sure the files aren't queued until manually added
-    previewsContainer: "#previews", // Define the container to display the previews
-    clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-  })
+  // var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+  //   url: "/target-url", // Set the url
+  //   thumbnailWidth: 80,
+  //   thumbnailHeight: 80,
+  //   parallelUploads: 20,
+  //   previewTemplate: previewTemplate,
+  //   autoQueue: false, // Make sure the files aren't queued until manually added
+  //   previewsContainer: "#previews", // Define the container to display the previews
+  //   clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+  // })
 
-  myDropzone.on("addedfile", function(file) {
-    // Hookup the start button
-    file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
-  })
+  // myDropzone.on("addedfile", function(file) {
+  //   // Hookup the start button
+  //   file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
+  // })
 
-  // Update the total progress bar
-  myDropzone.on("totaluploadprogress", function(progress) {
-    document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-  })
+  // // Update the total progress bar
+  // myDropzone.on("totaluploadprogress", function(progress) {
+  //   document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+  // })
 
-  myDropzone.on("sending", function(file) {
-    // Show the total progress bar when upload starts
-    document.querySelector("#total-progress").style.opacity = "1"
-    // And disable the start button
-    file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-  })
+  // myDropzone.on("sending", function(file) {
+  //   // Show the total progress bar when upload starts
+  //   document.querySelector("#total-progress").style.opacity = "1"
+  //   // And disable the start button
+  //   file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+  // })
 
-  // Hide the total progress bar when nothing's uploading anymore
-  myDropzone.on("queuecomplete", function(progress) {
-    document.querySelector("#total-progress").style.opacity = "0"
-  })
+  // // Hide the total progress bar when nothing's uploading anymore
+  // myDropzone.on("queuecomplete", function(progress) {
+  //   document.querySelector("#total-progress").style.opacity = "0"
+  // })
 
-  // Setup the buttons for all transfers
-  // The "add files" button doesn't need to be setup because the config
-  // `clickable` has already been specified.
-  document.querySelector("#actions .start").onclick = function() {
-    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-  }
-  document.querySelector("#actions .cancel").onclick = function() {
-    myDropzone.removeAllFiles(true)
-  }
+  // // Setup the buttons for all transfers
+  // // The "add files" button doesn't need to be setup because the config
+  // // `clickable` has already been specified.
+  // document.querySelector("#actions .start").onclick = function() {
+  //   myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+  // }
+  // document.querySelector("#actions .cancel").onclick = function() {
+  //   myDropzone.removeAllFiles(true)
+  // }
   // DropzoneJS Demo Code End
 </script>
 </body>

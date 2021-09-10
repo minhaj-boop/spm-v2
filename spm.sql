@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2021 at 09:20 PM
+-- Generation Time: Sep 10, 2021 at 10:43 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -164,7 +164,7 @@ CREATE TABLE `tbl_course` (
   `courseTitle` varchar(10) NOT NULL,
   `courseName` varchar(255) NOT NULL,
   `departmentId` varchar(5) NOT NULL,
-  `semesterName` varchar(10) NOT NULL,
+  `semesterId` varchar(10) NOT NULL,
   `facultyId` int(7) NOT NULL,
   `programId` varchar(5) NOT NULL,
   `studentId` int(7) NOT NULL
@@ -174,7 +174,7 @@ CREATE TABLE `tbl_course` (
 -- Dumping data for table `tbl_course`
 --
 
-INSERT INTO `tbl_course` (`courseId`, `courseTitle`, `courseName`, `departmentId`, `semesterName`, `facultyId`, `programId`, `studentId`) VALUES
+INSERT INTO `tbl_course` (`courseId`, `courseTitle`, `courseName`, `departmentId`, `semesterId`, `facultyId`, `programId`, `studentId`) VALUES
 (1, 'CSC101', 'Introduction to computer programming', 'CSE', 'summer2017', 1111, 'CSC', 1730725),
 (2, 'CSC101', 'Introduction to computer programming', 'CSE', 'summer2017', 2222, 'CSC', 1730400),
 (3, 'CSE201', 'Introduction to algorithm', 'CSE', 'summer2017', 3333, 'CSC', 1730075),
@@ -566,7 +566,7 @@ ALTER TABLE `tbl_co`
 ALTER TABLE `tbl_course`
   ADD PRIMARY KEY (`courseId`),
   ADD KEY `tbl_course_fk0` (`departmentId`),
-  ADD KEY `tbl_course_fk1` (`semesterName`),
+  ADD KEY `tbl_course_fk1` (`semesterId`),
   ADD KEY `tbl_course_fk2` (`facultyId`),
   ADD KEY `tbl_course_fk3` (`programId`),
   ADD KEY `tbl_course_fk4` (`studentId`);
@@ -683,7 +683,7 @@ ALTER TABLE `tbl_co`
 --
 ALTER TABLE `tbl_course`
   ADD CONSTRAINT `tbl_course_fk0` FOREIGN KEY (`departmentId`) REFERENCES `tbl_department` (`departmentId`),
-  ADD CONSTRAINT `tbl_course_fk1` FOREIGN KEY (`semesterName`) REFERENCES `tbl_semester` (`semesterId`),
+  ADD CONSTRAINT `tbl_course_fk1` FOREIGN KEY (`semesterId`) REFERENCES `tbl_semester` (`semesterId`),
   ADD CONSTRAINT `tbl_course_fk2` FOREIGN KEY (`facultyId`) REFERENCES `tbl_faculty` (`facultyId`),
   ADD CONSTRAINT `tbl_course_fk3` FOREIGN KEY (`programId`) REFERENCES `tbl_program` (`programId`),
   ADD CONSTRAINT `tbl_course_fk4` FOREIGN KEY (`studentId`) REFERENCES `tbl_student` (`studentId`);
