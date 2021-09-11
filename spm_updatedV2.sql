@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2021 at 10:43 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Sep 11, 2021 at 11:19 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -331,6 +331,44 @@ INSERT INTO `tbl_head` (`headId`, `headName`, `headEmail`, `departmentId`, `scho
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_login`
+--
+
+CREATE TABLE `tbl_login` (
+  `id` int(12) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_login`
+--
+
+INSERT INTO `tbl_login` (`id`, `password`) VALUES
+(1111, '7865'),
+(1112, '8895');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_loginstd`
+--
+
+CREATE TABLE `tbl_loginstd` (
+  `id` int(11) NOT NULL,
+  `password` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_loginstd`
+--
+
+INSERT INTO `tbl_loginstd` (`id`, `password`) VALUES
+(1730400, '1730400'),
+(1730725, '1730725');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_plo`
 --
 
@@ -594,6 +632,18 @@ ALTER TABLE `tbl_head`
   ADD KEY `tbl_head_fk1` (`schoolId`);
 
 --
+-- Indexes for table `tbl_login`
+--
+ALTER TABLE `tbl_login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_loginstd`
+--
+ALTER TABLE `tbl_loginstd`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_plo`
 --
 ALTER TABLE `tbl_plo`
@@ -657,6 +707,18 @@ ALTER TABLE `tbl_head`
   MODIFY `headId` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `tbl_login`
+--
+ALTER TABLE `tbl_login`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
+
+--
+-- AUTO_INCREMENT for table `tbl_loginstd`
+--
+ALTER TABLE `tbl_loginstd`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1921167;
+
+--
 -- AUTO_INCREMENT for table `tbl_plo`
 --
 ALTER TABLE `tbl_plo`
@@ -706,6 +768,18 @@ ALTER TABLE `tbl_faculty`
 ALTER TABLE `tbl_head`
   ADD CONSTRAINT `tbl_head_fk0` FOREIGN KEY (`departmentId`) REFERENCES `tbl_department` (`departmentId`),
   ADD CONSTRAINT `tbl_head_fk1` FOREIGN KEY (`schoolId`) REFERENCES `tbl_school` (`schoolId`);
+
+--
+-- Constraints for table `tbl_login`
+--
+ALTER TABLE `tbl_login`
+  ADD CONSTRAINT `tbl_login_fk1` FOREIGN KEY (`id`) REFERENCES `tbl_faculty` (`facultyId`);
+
+--
+-- Constraints for table `tbl_loginstd`
+--
+ALTER TABLE `tbl_loginstd`
+  ADD CONSTRAINT `tbl_loginstd_fk1` FOREIGN KEY (`id`) REFERENCES `tbl_student` (`studentId`);
 
 --
 -- Constraints for table `tbl_plo`

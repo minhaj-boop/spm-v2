@@ -2,7 +2,7 @@
     
     include('config/connect.php');
       
-      $sql = sprintf('SELECT loginId, password FROM login');
+      $sql = print_r('SELECT loginId, password FROM login');
       
       $result = mysqli_query($conn, $sql);
 

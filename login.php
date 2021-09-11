@@ -1,6 +1,6 @@
 <?php 
-
-
+include('config/connect.php');
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +29,9 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="login.php" method="POST">
+      <form action="process.php" method="POST">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="University ID">
+          <input type="text" id="id" name="id" class="form-control" placeholder="University ID">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" id="pass" name="pass" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,7 +49,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col">
-            <button type="submit" class="btn btn-success btn-block">Sign In</button>
+            <button type="submit" id= "btn" name="Login" class="btn btn-success btn-block">Sign In</button>
           </div>
           <!-- /.col -->    
         </div>
