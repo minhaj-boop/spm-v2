@@ -2,6 +2,7 @@
 include('config/connect.php');
 $course = $_POST['course'];
 $semester = $_POST['semester'];
+$plo =  $_POST['plo'];
 
 $query  = "SELECT t_total.ploNo, t_total.total, t_achieved.achieved, round((t_achieved.achieved*100/t_total.total)) AS perAchieved
 FROM (SELECT co.ploNo, count(DISTINCT co.studentId) AS total

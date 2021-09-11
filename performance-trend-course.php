@@ -118,8 +118,18 @@
                        </select>
                       </div>
                       <div class="form-group">
-                       <label>PLO/s</label>
+                       <label>Semester/s</label>
                        <select name="semester" class="select2bs4" data-placeholder="Select PLO/s" style="width: 100%;">
+                       <option value="summer2017">summer2017</option>
+                        <option value="autumn2017">autumn2017</option>
+                        <option value="autumn2019">autumn2019</option>
+                        <option value="autumn2020">autumn2020</option>
+                        <option value="summer2019">summer2019</option>
+                       </select>
+                      </div>
+                      <div class="form-group">
+                       <label>PLO/s</label>
+                       <select name="plo" class="select2bs4" data-placeholder="Select PLO/s" style="width: 100%;">
                         <option value="plo1">PLO 1</option>
                         <option value="plo2">PLO 2</option>
                         <option value="plo3">PLO 3</option>
