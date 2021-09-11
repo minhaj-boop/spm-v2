@@ -4,16 +4,16 @@ $course = $_POST['course'];
 $semester = $_POST['semester'];
 
 $query  = "SELECT t_total.ploNo, t_total.total, t_achieved.achieved, round((t_achieved.achieved*100/t_total.total)) AS perAchieved
-            FROM (SELECT co.ploNo, count(DISTINCT co.studentId) AS total
-            FROM tbl_co AS co 
-            WHERE co.courseTitle = '$course'
-            GROUP BY co.ploNo
-            ORDER BY co.ploNo) AS t_total
-            JOIN (SELECT co1.ploNo, count(DISTINCT co1.studentId) AS achieved 
-            FROM tbl_co AS co1 
-            WHERE co1.courseTitle = '$course' AND co1.achievedMarks >= 40
-            GROUP BY co1.ploNo
-            ORDER BY co1.ploNo) AS t_achieved ON t_total.ploNo = t_achieved.ploNo";
+FROM (SELECT co.ploNo, count(DISTINCT co.studentId) AS total
+FROM tbl_co AS co 
+WHERE co.courseTitle = '$course'
+GROUP BY co.ploNo
+ORDER BY co.ploNo) AS t_total
+JOIN (SELECT co1.ploNo, count(DISTINCT co1.studentId) AS achieved 
+FROM tbl_co AS co1 
+WHERE co1.courseTitle = '$course' AND co1.achievedMarks >= 40
+GROUP BY co1.ploNo
+ORDER BY co1.ploNo) AS t_achieved ON t_total.ploNo = t_achieved.ploNo";
 
 $result = mysqli_query($conn, $query);
 
@@ -237,29 +237,6 @@ $averages = trim($averages, ",");
             </div>
             <!-- /.card -->
 
-            <!-- STACKED BAR CHART -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Stacked Bar Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
           </div>
           <!-- /.col (RIGHT) -->
         </div>
@@ -321,7 +298,7 @@ $averages = trim($averages, ",");
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [<?php echo $averages ?> ]
+          data                : [<?php echo $averages ?>]
          }
       ]
     }
