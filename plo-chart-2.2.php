@@ -3,31 +3,33 @@ include('config/connect.php');
 $course = $_POST['course'];
 $semester = $_POST['semester'];
 
-$query  = "SELECT AVG(co.achievedMarks) AS average, co.ploNo, f.facultyName
-            FROM tbl_co AS co, tbl_course AS c, tbl_faculty AS f, tbl_semester AS s
-              WHERE c.semesterId = s.semesterId AND c.facultyId = f.facultyId AND co.courseTitle = c.courseTitle AND
-                c.courseTitle = '$course' AND s.semesterId = '$semester'
-                  GROUP BY co.ploNo,f.facultyName
-                    ORDER BY co.ploNo";
+$query  = "SELECT t_total.ploNo, t_total.total, t_achieved.achieved, round((t_achieved.achieved*100/t_total.total)) AS perAchieved
+            FROM (SELECT co.ploNo, count(DISTINCT co.studentId) AS total
+            FROM tbl_co AS co 
+            WHERE co.courseTitle = '$course'
+            GROUP BY co.ploNo
+            ORDER BY co.ploNo) AS t_total
+            JOIN (SELECT co1.ploNo, count(DISTINCT co1.studentId) AS achieved 
+            FROM tbl_co AS co1 
+            WHERE co1.courseTitle = '$course' AND co1.achievedMarks >= 40
+            GROUP BY co1.ploNo
+            ORDER BY co1.ploNo) AS t_achieved ON t_total.ploNo = t_achieved.ploNo";
 
 $result = mysqli_query($conn, $query);
 
 
 $plos = '';
 $averages = '';
-$faculty = '';
 
 while($rows = mysqli_fetch_array($result)){
     $plo = $rows['ploNo'];
-    $average = $rows['average'];
-    $faculty = $rows['facultyName'];
+    $average = $rows['perAchieved'];
 
     $plos = $plos.'"'.$plo.'",'; 
     $averages = $averages.$average.',';
 }
 $plos = trim($plos, ",");
 $averages = trim($averages, ",");
-$averages2 = $averages;
 
 // $colors = array("red", "green", "blue", "yellow");
 
@@ -107,7 +109,7 @@ $averages2 = $averages;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chart 2.1</title>
+    <title>Chart 2.2</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -320,18 +322,7 @@ $averages2 = $averages;
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
           data                : [<?php echo $averages ?> ]
-         },
-        {
-          label               : 'Javed Hossain',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
-          pointRadius         : false,
-          pointColor          : 'rgba(210, 214, 222, 1)',
-          pointStrokeColor    : '#c1c7d1',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [<?php echo $averages2 ?>]
-        },
+         }
       ]
     }
 
@@ -369,8 +360,8 @@ $averages2 = $averages;
     var lineChartOptions = $.extend(true, {}, areaChartOptions)
     var lineChartData = $.extend(true, {}, areaChartData)
     lineChartData.datasets[0].fill = false;
-    lineChartData.datasets[1].fill = false;
-    lineChartOptions.datasetFill = false
+    // lineChartData.datasets[1].fill = false;
+    lineChartOptions.datasetFill = false;
 
     var lineChart = new Chart(lineChartCanvas, {
       type: 'line',
@@ -384,17 +375,10 @@ $averages2 = $averages;
     // Get context with jQuery - using jQuery's .get() method.
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
-      labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
-      ],
+      labels: [<?php echo $plos ?>],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
+          data: [<?php echo $averages ?>],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
         }
       ]
@@ -436,8 +420,8 @@ $averages2 = $averages;
     var barChartData = $.extend(true, {}, areaChartData)
     var temp0 = areaChartData.datasets[0]
     var temp1 = areaChartData.datasets[1]
-    barChartData.datasets[0] = temp1
-    barChartData.datasets[1] = temp0
+    barChartData.datasets[0] = temp0
+    // barChartData.datasets[1] = temp0
 
     var barChartOptions = {
       responsive              : true,
@@ -454,27 +438,27 @@ $averages2 = $averages;
     //---------------------
     //- STACKED BAR CHART -
     //---------------------
-    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-    var stackedBarChartData = $.extend(true, {}, barChartData)
+    // var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    // var stackedBarChartData = $.extend(true, {}, barChartData)
 
-    var stackedBarChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
-    }
+    // var stackedBarChartOptions = {
+    //   responsive              : true,
+    //   maintainAspectRatio     : false,
+    //   scales: {
+    //     xAxes: [{
+    //       stacked: true,
+    //     }],
+    //     yAxes: [{
+    //       stacked: true
+    //     }]
+    //   }
+    // }
 
-    new Chart(stackedBarChartCanvas, {
-      type: 'bar',
-      data: stackedBarChartData,
-      options: stackedBarChartOptions
-    })
+    // new Chart(stackedBarChartCanvas, {
+    //   type: 'bar',
+    //   data: stackedBarChartData,
+    //   options: stackedBarChartOptions
+    // })
   })
 </script>
 </body>
