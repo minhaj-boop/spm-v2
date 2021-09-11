@@ -162,7 +162,7 @@
                       <!-- dropdown -->
                       <div class="form-group">
                        <label>Course/s</label>
-                       <select name="course[]" class="select2bs4" data-placeholder="Select course/s" style="width: 100%;">
+                       <select name="course" class="select2bs4" data-placeholder="Select course/s" style="width: 100%;">
                         <option value="CSC101">CSC101</option>
                         <option value="CSE201">CSE201</option>
                         <option value="CSE104">CSE104</option>
@@ -173,7 +173,7 @@
                       </div>
                       <div class="form-group">
                        <label>Semester/s</label>
-                       <select name="semester[]" class="select2bs4" data-placeholder="Select semester/s" style="width: 100%;">
+                       <select name="semester" class="select2bs4" data-placeholder="Select semester/s" style="width: 100%;">
                         <option value="summer2017">summer2017</option>
                         <option value="autumn2017">autumn2017</option>
                         <option value="autumn2019">autumn2019</option>

@@ -3,31 +3,42 @@ include('config/connect.php');
 $course = $_POST['course'];
 $semester = $_POST['semester'];
 
-$query  = "SELECT AVG(co.achievedMarks) AS average, co.ploNo, f.facultyName
-            FROM tbl_co AS co, tbl_course AS c, tbl_faculty AS f, tbl_semester AS s
-              WHERE c.semesterId = s.semesterId AND c.facultyId = f.facultyId AND co.courseTitle = c.courseTitle AND
-                c.courseTitle = '$course' AND s.semesterId = '$semester'
-                  GROUP BY co.ploNo,f.facultyName
-                    ORDER BY co.ploNo";
+$query  = "SELECT t_total.ploNo, t_total.total, t_achieved.achieved, IFNULL(t_notAchieved.notAchieved, 0) AS notAchieved, round((t_achieved.achieved*100/t_total.total)) as perAchieved, IFNULL(round((t_notAchieved.notAchieved*100/t_total.total)), 0) as perNotAchieved
+FROM (SELECT co.ploNo, count(DISTINCT co.studentId) AS total
+FROM tbl_co AS co 
+WHERE co.courseTitle = '$course'
+GROUP BY co.ploNo
+ORDER BY co.ploNo) AS t_total
+LEFT JOIN (SELECT co1.ploNo, count(DISTINCT co1.studentId) AS achieved 
+FROM tbl_co AS co1 
+WHERE co1.courseTitle = '$course' AND co1.achievedMarks >= 40
+GROUP BY co1.ploNo
+ORDER BY co1.ploNo) AS t_achieved ON t_total.ploNo = t_achieved.ploNo
+LEFT JOIN (SELECT co1.ploNo, count(DISTINCT co1.studentId) AS notAchieved 
+FROM tbl_co AS co1 
+WHERE co1.courseTitle = '$course' AND co1.achievedMarks < 40
+GROUP BY co1.ploNo
+ORDER BY co1.ploNo) AS t_notAchieved ON t_total.ploNo = t_notAchieved.ploNo";
 
 $result = mysqli_query($conn, $query);
 
 
 $plos = '';
-$averages = '';
-$faculty = '';
+$achieved = '';
+$notAchieved = '';
 
 while($rows = mysqli_fetch_array($result)){
     $plo = $rows['ploNo'];
-    $average = $rows['average'];
-    $faculty = $rows['facultyName'];
+    $ach = $rows['perAchieved'];
+    $notAch = $rows['perNotAchieved'];
 
     $plos = $plos.'"'.$plo.'",'; 
-    $averages = $averages.$average.',';
+    $achieved = $achieved.$ach.',';
+    $notAchieved = $notAchieved.$notAch.',';
 }
 $plos = trim($plos, ",");
-$averages = trim($averages, ",");
-$averages2 = $averages;
+$achieved = trim($achieved, ",");
+$notAchieved = trim($notAchieved, ",");
 
 // $colors = array("red", "green", "blue", "yellow");
 
@@ -311,7 +322,7 @@ $averages2 = $averages;
       labels  : [<?php echo $plos ?>],
       datasets: [
         {
-          label               : 'Sadita Ahmed',
+          label               : 'Achieved',
           backgroundColor     : 'rgba(60,141,188,0.9)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius         : false,
@@ -319,10 +330,10 @@ $averages2 = $averages;
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [<?php echo $averages ?> ]
+          data                : [<?php echo $achieved?> ]
          },
         {
-          label               : 'Javed Hossain',
+          label               : 'Not Achieved',
           backgroundColor     : 'rgba(210, 214, 222, 1)',
           borderColor         : 'rgba(210, 214, 222, 1)',
           pointRadius         : false,
@@ -330,7 +341,7 @@ $averages2 = $averages;
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [<?php echo $averages2 ?>]
+          data                : [<?php echo $notAchieved ?>]
         },
       ]
     }
@@ -384,18 +395,15 @@ $averages2 = $averages;
     // Get context with jQuery - using jQuery's .get() method.
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
-      labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
-      ],
+      labels: [<?php echo $plos ?>],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
+          data: [<?php echo $achieved?> ],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        },
+        {
+          data: [<?php echo $notAchieved?> ],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],          
         }
       ]
     }
