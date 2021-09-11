@@ -272,7 +272,7 @@ $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS ac
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [<?php echo $achievedMarks ?> ]
+          data                : [<?php echo $achievedMarks ?>]
         },
         {
           label               : 'All Students',
@@ -337,18 +337,15 @@ $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS ac
     // Get context with jQuery - using jQuery's .get() method.
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
-      labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
-      ],
+      labels: [<?php echo $plos ?>],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
+          data: [<?php echo $achievedMarks ?>],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        },
+        {
+          data: [<?php echo $avgMarks ?>],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'], 
         }
       ]
     }
