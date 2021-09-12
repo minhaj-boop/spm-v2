@@ -68,10 +68,12 @@
                       </div>
                       <div class="form-group">
                        <label>Select Semester(s)</label>
-                       <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select Semester(s)" style="width: 100%;">
-                        <option>SP2021</option>
-                        <option>AU2020</option>
-                        <option>SU2020</option>
+                       <select name="semester" class="select2bs4" data-placeholder="Select Semester(s)" style="width: 100%;">
+                        <option value="summer2017">summer2017</option>
+                        <option value="autumn2017">autumn2017</option>
+                        <option value="autumn2019">autumn2019</option>
+                        <option value="autumn2020">autumn2020</option>
+                        <option value="summer2019">summer2019</option>
                        </select>
                       </div>
                     </div>      
@@ -110,10 +112,12 @@
                       </div>
                       <div class="form-group">
                        <label>Select Semester(s)</label>
-                       <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select Semester(s)" style="width: 100%;">
-                        <option>SP2021</option>
-                        <option>AU2020</option>
-                        <option>SU2020</option>
+                       <select name="semester" class="select2bs4" data-placeholder="Select Semester(s)" style="width: 100%;">
+                        <option value="summer2017">summer2017</option>
+                        <option value="autumn2017">autumn2017</option>
+                        <option value="autumn2019">autumn2019</option>
+                        <option value="autumn2020">autumn2020</option>
+                        <option value="summer2019">summer2019</option>
                        </select>
                       </div>
                     </div>      

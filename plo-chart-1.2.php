@@ -224,7 +224,7 @@ $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS ac
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 1.1
     </div>
-    <strong>Copyright &copy; 2021 <a href="plo-chart-1.2.php">SPM</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021 SPM.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
