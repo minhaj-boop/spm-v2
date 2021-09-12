@@ -60,18 +60,9 @@
                       <!-- dropdown -->
                       <div class="form-group">
                        <label>Select Department(s)</label>
-                       <select name="department[]" class="select2bs4" multiple="multiple" data-placeholder="Select Department(s)" style="width: 100%;">
-                        <option>CSE</option>
-                        <option>EEE</option>
-                        <option>Finance</option>
-                       </select>
-                      </div>
-                      <div class="form-group">
-                       <label>Select Semester(s)</label>
-                       <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select Semester(s)" style="width: 100%;">
-                        <option>SP2021</option>
-                        <option>AU2020</option>
-                        <option>SU2020</option>
+                       <select name="department" class="select2bs4" data-placeholder="Select Department(s)" style="width: 100%;">
+                        <option value="CSE">CSE</option>
+                        <option value="EEE">EEE</option>
                        </select>
                       </div>
                     </div>      
@@ -100,18 +91,9 @@
                       <!-- dropdown -->
                       <div class="form-group">
                        <label>Select Department(s)</label>
-                       <select name="department[]" class="select2bs4" multiple="multiple" data-placeholder="Select Department(s)" style="width: 100%;">
-                        <option>CSE</option>
-                        <option>EEE</option>
-                        <option>Finance</option>
-                       </select>
-                      </div>
-                      <div class="form-group">
-                       <label>Select Semester(s)</label>
-                       <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select Semester(s)" style="width: 100%;">
-                        <option>SP2021</option>
-                        <option>AU2020</option>
-                        <option>SU2020</option>
+                       <select name="department" class="select2bs4" data-placeholder="Select Department(s)" style="width: 100%;">
+                        <option value="CSE">CSE</option>
+                        <option value="EEE">EEE</option>
                        </select>
                       </div>
                     </div>      
@@ -131,10 +113,7 @@
                 <h3 class="card-title">
                 For a selected instructor, a chart showing the percentage of students who
                 achieved each PLO in the course/s taught by that instructor within a
-                chosen time frame. Upon selecting a specific PLO from that chart, a further
-                comparison of PLO achievement percentage w.r.t. other instructors for that
-                chosen PLO should be displayed within the same time frame that was
-                already selected for the source chart (NOT SURE ABT THIS!)
+                chosen time frame.
                 </h3>
               </div>
               <!-- /.card-header -->
@@ -146,18 +125,10 @@
                       <div class="form-group">
                        <label>Select a Faculty</label>
                        <select name="faculty" data-placeholder="Select a Faculty" class="select2bs4" style="width: 100%;">
-                        <option>faculty 1</option>
-                        <option>faculty 2</option>
-                        <option>faculty 3</option>
-                        <option>faculty 4</option>
-                       </select>
-                      </div>
-                      <div class="form-group">
-                       <label>Select Semester(s)</label>
-                       <select name="semester[]" class="select2bs4" multiple="multiple" data-placeholder="Select Semester(s)" style="width: 100%;">
-                        <option>SP2021</option>
-                        <option>AU2020</option>
-                        <option>SU2020</option>
+                        <option value="Sadita Ahmed">Sadita Ahmed</option>
+                        <option value="Sadita Ahmed">Javed Hossain</option>
+                        <option value="Kamrul Hasan">Kamrul Hasan</option>
+                        <option value="Abu Sayeed">Abu Sayeed</option>
                        </select>
                       </div>
                     </div>      
