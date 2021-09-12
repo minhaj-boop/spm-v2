@@ -29,75 +29,7 @@ $plos = trim($plos, ",");
 $averages = trim($averages, ",");
 $averages2 = $averages;
 
-// $colors = array("red", "green", "blue", "yellow");
-
-// $fac1 = "";
-// $fac2 = "";
-// $c = 0;
-// foreach ($faculty as $fac) {
-//   if($c == 0)
-//     $fac1 = $fac['facultyName'];
-//   if($c == 1)
-//     $fac2 = $fac['facultyName'];
-//   $c++;
-// }
-
-// echo $fac1;
-
-//print_r($faculty);
-//$faculty = array_unique($faculty);
-
-//$programId = $_POST['program'];
-// $studentId =  $_POST['id'];
-
-// $query1 = "SELECT c.ploNo, s.programId, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS achievedMarks 
-//             FROM tbl_co AS c 
-//               JOIN tbl_student AS s 
-//                 ON c.studentId = s.studentId 
-//                   WHERE c.studentId = $studentId
-//                     GROUP BY c.ploNo
-//                       ORDER BY c.ploNo";
-
-// $result1 = mysqli_query($conn, $query1);
-// $plos = '';
-// $achievedMarks = '';
-// $programId = '';
-//   while($rows = mysqli_fetch_array($result1)){
-//     $plo = $rows['ploNo'];
-//     $achievedMark = $rows['achievedMarks'];
-//     $programId = $rows['programId'];
-
-//     $plos = $plos.'"'.$plo.'",'; 
-//     $achievedMarks = $achievedMarks.$achievedMark.',';
-//   }
-//   $plos = trim($plos, ",");
-//   $achievedMarks = trim($achievedMarks, ",");
-
-// $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS achievedMarks
-//               FROM tbl_co AS c 
-//                JOIN tbl_plo AS p
-//                   JOIN tbl_student AS s
-//                      ON s.programId = p.programId 
-//                         WHERE p.programId = '$programId'
-//                           GROUP BY c.ploNo
-//                             ORDER BY c.ploNo";
-  
-//   $result2 = mysqli_query($conn, $query2);
-//   //$plos2 = '';
-//   $avgMarks = '';
-
-//   while($rows = mysqli_fetch_array($result2)){
-//     //$plo = $rows['ploNo'];
-//     $avgMark = $rows['achievedMarks'];
-
-//     //$plos2 = $plos2.'"'.$plo.'",'; 
-//     $avgMarks = $avgMarks.$avgMark.',';
-//   }
-  
-//   //$plos2 = trim($plos2, ",");
-//   $avgMarks = trim($avgMarks, ",");
-
-  mysqli_close($conn);
+mysqli_close($conn);
 
 ?>
 
@@ -383,23 +315,20 @@ $averages2 = $averages;
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    var donutData        = {
-      labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
-      ],
+    var donutData = {
+      labels: [<?php echo $plos ?>],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
+          data: [<?php echo $averages ?>],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        },
+        {
+          data: [<?php echo $averages2 ?>],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
         }
       ]
     }
-    var donutOptions     = {
+    var donutOptions = {
       maintainAspectRatio : false,
       responsive : true,
     }
