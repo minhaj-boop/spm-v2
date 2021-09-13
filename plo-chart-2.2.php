@@ -31,6 +31,8 @@ while($rows = mysqli_fetch_array($result)){
 }
 $plos = trim($plos, ",");
 $averages = trim($averages, ",");
+  //fee reslut from memory
+  mysqli_free_result($result);
 
   //close connection
   mysqli_close($conn);

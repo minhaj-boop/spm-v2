@@ -50,6 +50,10 @@ $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS ac
   //$plos2 = trim($plos2, ",");
   $avgMarks = trim($avgMarks, ",");
 
+  //fee reslut from memory
+  mysqli_free_result($result1);
+  mysqli_free_result($result2);
+
   mysqli_close($conn);
 
 ?>

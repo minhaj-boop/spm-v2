@@ -29,6 +29,9 @@ $plos = trim($plos, ",");
 $averages = trim($averages, ",");
 $averages2 = $averages;
 
+//fee reslut from memory
+mysqli_free_result($result);
+
 mysqli_close($conn);
 
 ?>

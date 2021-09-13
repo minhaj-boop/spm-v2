@@ -84,7 +84,9 @@
   // }
 
   //fee reslut from memory
-  //mysqli_free_result($result);
+  mysqli_free_result($result1);
+  mysqli_free_result($result2);
+  
 
   //close connection
   mysqli_close($conn);

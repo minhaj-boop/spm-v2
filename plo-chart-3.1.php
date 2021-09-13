@@ -39,6 +39,8 @@ $plos = trim($plos, ",");
 $achieved = trim($achieved, ",");
 $notAchieved = trim($notAchieved, ",");
 
+  //fee reslut from memory
+  mysqli_free_result($result);
 
 mysqli_close($conn);
 

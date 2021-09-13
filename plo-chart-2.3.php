@@ -40,73 +40,8 @@ $plos = trim($plos, ",");
 $achieved = trim($achieved, ",");
 $notAchieved = trim($notAchieved, ",");
 
-// $colors = array("red", "green", "blue", "yellow");
-
-// $fac1 = "";
-// $fac2 = "";
-// $c = 0;
-// foreach ($faculty as $fac) {
-//   if($c == 0)
-//     $fac1 = $fac['facultyName'];
-//   if($c == 1)
-//     $fac2 = $fac['facultyName'];
-//   $c++;
-// }
-
-// echo $fac1;
-
-//print_r($faculty);
-//$faculty = array_unique($faculty);
-
-//$programId = $_POST['program'];
-// $studentId =  $_POST['id'];
-
-// $query1 = "SELECT c.ploNo, s.programId, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS achievedMarks 
-//             FROM tbl_co AS c 
-//               JOIN tbl_student AS s 
-//                 ON c.studentId = s.studentId 
-//                   WHERE c.studentId = $studentId
-//                     GROUP BY c.ploNo
-//                       ORDER BY c.ploNo";
-
-// $result1 = mysqli_query($conn, $query1);
-// $plos = '';
-// $achievedMarks = '';
-// $programId = '';
-//   while($rows = mysqli_fetch_array($result1)){
-//     $plo = $rows['ploNo'];
-//     $achievedMark = $rows['achievedMarks'];
-//     $programId = $rows['programId'];
-
-//     $plos = $plos.'"'.$plo.'",'; 
-//     $achievedMarks = $achievedMarks.$achievedMark.',';
-//   }
-//   $plos = trim($plos, ",");
-//   $achievedMarks = trim($achievedMarks, ",");
-
-// $query2  = "SELECT c.ploNo, SUM(c.achievedMarks) * 100 / SUM(c.totalMarks) AS achievedMarks
-//               FROM tbl_co AS c 
-//                JOIN tbl_plo AS p
-//                   JOIN tbl_student AS s
-//                      ON s.programId = p.programId 
-//                         WHERE p.programId = '$programId'
-//                           GROUP BY c.ploNo
-//                             ORDER BY c.ploNo";
-  
-//   $result2 = mysqli_query($conn, $query2);
-//   //$plos2 = '';
-//   $avgMarks = '';
-
-//   while($rows = mysqli_fetch_array($result2)){
-//     //$plo = $rows['ploNo'];
-//     $avgMark = $rows['achievedMarks'];
-
-//     //$plos2 = $plos2.'"'.$plo.'",'; 
-//     $avgMarks = $avgMarks.$avgMark.',';
-//   }
-  
-//   //$plos2 = trim($plos2, ",");
-//   $avgMarks = trim($avgMarks, ",");
+  //fee reslut from memory
+  mysqli_free_result($result);
 
   mysqli_close($conn);
 
