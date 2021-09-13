@@ -1,7 +1,20 @@
 <?php 
+      include('config/connect.php');
+    
+      $query = "";
+      mysqli_query($conn, $query);
+        
+      $result = mysqli_query($conn, $query);
+    //fetch the resulting rows as array
+    $table = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+      //fee reslut from memory
+      mysqli_free_result($result);
+    
+      //close connection
+      mysqli_close($conn);
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
