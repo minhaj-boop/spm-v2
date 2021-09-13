@@ -2,25 +2,6 @@
   include('config/connect.php');
   $course = $_POST['course'];
   $studentId = $_POST['id'];
-  
-  //$sqlCourse = "SELECT * FROM plochart1";
-
-  //make quaries and get results
-  //$result = mysqli_query($conn, $sqlCourse);
-
-  // $plos = '';
-  // $achievedMarks = '';
-
-  // while($rows = mysqli_fetch_array($result)){
-  //   $plo = $rows['ploNo'];
-  //   $achievedMark = $rows['achievedMarks'];
-
-  //   $plos = $plos.'"'.$plo.'",';
-  //   $achievedMarks = $achievedMarks.$achievedMark.',';
-  // }
-
-  // $plos = trim($plos, ",");
-  // $achievedMarks = trim($achievedMarks, ",");
 
   $query1 = "CREATE VIEW studentplo AS 
 	            SELECT c.achievedMarks, c.ploNo
@@ -65,24 +46,11 @@
     $avgMarks = $avgMarks.$avgMark.',';
   }
   
-  //$plos2 = trim($plos2, ",");
   $avgMarks = trim($avgMarks, ",");
 
   $query4 = "DROP VIEW studentplo";
   mysqli_query($conn, $query4);
-  //  while ($row = $result->fetch_assoc()) {
-  //    echo $row['achievedMarks']." ".$row['ploNo']."<br>";
-  //  }
-
-  //echo $result;
-    
-  //fetch the resulting rows as array
-  //$courseArray = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-  // foreach($courseArray as $course){
-  //      $courseId = $course['courseId']."<br>";
-  // }
-
+  
   //fee reslut from memory
   mysqli_free_result($result1);
   mysqli_free_result($result2);
